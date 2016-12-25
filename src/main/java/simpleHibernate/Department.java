@@ -1,6 +1,7 @@
 package simpleHibernate;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by user on 20.12.2016.
@@ -19,6 +20,16 @@ public class Department {
     @ManyToOne
     @JoinColumn (name = "directorId")
     private Director  director;
+//    @ManyToMany (mappedBy = "MANAGER")
+//    private List<Manager> managerList;
+//
+//    public List<Manager> getManagerList() {
+//        return managerList;
+//    }
+//
+//    public void setManagerList(List<Manager> managerList) {
+//        this.managerList = managerList;
+//    }
 
     public Director getDirector() {
         return director;

@@ -17,134 +17,203 @@
     <schema id="11" parent="1" name="world"/>
     <table id="12" parent="2" name="company"/>
     <table id="13" parent="2" name="department"/>
-    <table id="14" parent="2" name="director"/>
-    <table id="15" parent="2" name="employee"/>
-    <table id="16" parent="2" name="hibernate_sequence"/>
-    <table id="17" parent="2" name="user"/>
-    <column id="18" parent="12" name="idcompany">
+    <table id="14" parent="2" name="department_manager"/>
+    <table id="15" parent="2" name="director"/>
+    <table id="16" parent="2" name="employee"/>
+    <table id="17" parent="2" name="hibernate_sequence"/>
+    <table id="18" parent="2" name="manager"/>
+    <table id="19" parent="2" name="manager_department"/>
+    <table id="20" parent="2" name="user"/>
+    <column id="21" parent="12" name="idcompany">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="19" parent="12" name="namecompany">
+    <column id="22" parent="12" name="namecompany">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="12" name="servicescompany">
+    <column id="23" parent="12" name="servicescompany">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="21" parent="12" name="PRIMARY">
+    <key id="24" parent="12" name="PRIMARY">
       <ColNames>idcompany</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="22" parent="13" name="department_id">
+    <column id="25" parent="13" name="department_id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="23" parent="13" name="department_name">
+    <column id="26" parent="13" name="department_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="24" parent="13" name="directorId">
+    <column id="27" parent="13" name="directorId">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="25" parent="13" name="FKi5rja5uatp6uyqgpxn2bbp30a">
+    <index id="28" parent="13" name="FKi5rja5uatp6uyqgpxn2bbp30a">
       <ColNames>directorId</ColNames>
     </index>
-    <key id="26" parent="13" name="PRIMARY">
+    <key id="29" parent="13" name="PRIMARY">
       <ColNames>department_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="27" parent="13" name="FKi5rja5uatp6uyqgpxn2bbp30a">
+    <foreign-key id="30" parent="13" name="FKi5rja5uatp6uyqgpxn2bbp30a">
       <ColNames>directorId</ColNames>
       <RefSchemaName>hibernate</RefSchemaName>
       <RefTableName>director</RefTableName>
       <RefColNames>directorId</RefColNames>
     </foreign-key>
-    <column id="28" parent="14" name="directorId">
+    <column id="31" parent="14" name="Department_department_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="14" name="directorName">
+    <column id="32" parent="14" name="managerList_managerId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="33" parent="14" name="FKf4didfd0af8tbs55cfeb6r8xs">
+      <ColNames>managerList_managerId</ColNames>
+    </index>
+    <foreign-key id="34" parent="14" name="FKf4didfd0af8tbs55cfeb6r8xs">
+      <ColNames>managerList_managerId</ColNames>
+      <RefSchemaName>hibernate</RefSchemaName>
+      <RefTableName>manager</RefTableName>
+      <RefColNames>managerId</RefColNames>
+    </foreign-key>
+    <column id="35" parent="15" name="directorId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="15" name="directorName">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="30" parent="14" name="PRIMARY">
+    <key id="37" parent="15" name="PRIMARY">
       <ColNames>directorId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="15" name="employee_id">
+    <column id="38" parent="16" name="employee_id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="32" parent="15" name="cell_phone">
+    <column id="39" parent="16" name="cell_phone">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="33" parent="15" name="first_name">
+    <column id="40" parent="16" name="first_name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="34" parent="15" name="last_name">
+    <column id="41" parent="16" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="35" parent="15" name="department_id">
+    <column id="42" parent="16" name="department_id">
       <Position>5</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <index id="36" parent="15" name="FK75C8D6AE7F54CC88">
+    <index id="43" parent="16" name="FK75C8D6AE7F54CC88">
       <ColNames>department_id</ColNames>
     </index>
-    <key id="37" parent="15" name="PRIMARY">
+    <key id="44" parent="16" name="PRIMARY">
       <ColNames>employee_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="38" parent="15" name="FK75C8D6AE7F54CC88">
+    <foreign-key id="45" parent="16" name="FK75C8D6AE7F54CC88">
       <ColNames>department_id</ColNames>
       <RefSchemaName>hibernate</RefSchemaName>
       <RefTableName>department</RefTableName>
       <RefColNames>department_id</RefColNames>
     </foreign-key>
-    <foreign-key id="39" parent="15" name="FKgt4oqg77c473h8fgoi8sygswr">
+    <foreign-key id="46" parent="16" name="FKgt4oqg77c473h8fgoi8sygswr">
       <ColNames>department_id</ColNames>
       <RefSchemaName>hibernate</RefSchemaName>
       <RefTableName>department</RefTableName>
       <RefColNames>department_id</RefColNames>
     </foreign-key>
-    <column id="40" parent="16" name="next_val">
+    <column id="47" parent="17" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="41" parent="17" name="USER_ID">
+    <column id="48" parent="18" name="managerId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="18" name="managerName">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="50" parent="18" name="manager_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="51" parent="18" name="PRIMARY">
+      <ColNames>managerId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="19" name="Manager_managerId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="19" name="departmentList_department_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="19" name="manager_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="19" name="department_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="56" parent="19" name="FK1mcsew9yvna1biv06vymsakui">
+      <ColNames>Manager_managerId</ColNames>
+    </index>
+    <foreign-key id="57" parent="19" name="FK1mcsew9yvna1biv06vymsakui">
+      <ColNames>Manager_managerId</ColNames>
+      <RefSchemaName>hibernate</RefSchemaName>
+      <RefTableName>manager</RefTableName>
+      <RefColNames>managerId</RefColNames>
+    </foreign-key>
+    <column id="58" parent="20" name="USER_ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="42" parent="17" name="USERNAME">
+    <column id="59" parent="20" name="USERNAME">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="43" parent="17" name="CREATED_BY">
+    <column id="60" parent="20" name="CREATED_BY">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="44" parent="17" name="CREATED_DATE">
+    <column id="61" parent="20" name="CREATED_DATE">
       <Position>4</Position>
       <DataType>date|0</DataType>
     </column>
-    <key id="45" parent="17" name="PRIMARY">
+    <key id="62" parent="20" name="PRIMARY">
       <ColNames>USER_ID</ColNames>
       <Primary>1</Primary>
     </key>
