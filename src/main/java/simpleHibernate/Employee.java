@@ -11,22 +11,33 @@ public class Employee {
     @Id
     @GeneratedValue
     @Column(name = "employee_id")
-    private long employeeId;
+    private int employeeId;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "cell_phone")
     private String cellPhone;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "department_id")
     private Department department;
 
-    public long getEmployeeId() {
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", cellPhone='" + cellPhone + '\'' +
+                ", department=" + department +
+                '}';
+    }
+
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(long employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 

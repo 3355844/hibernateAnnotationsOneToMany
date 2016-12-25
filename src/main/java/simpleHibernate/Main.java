@@ -3,6 +3,10 @@ package simpleHibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 /**
  * Created by user on 20.12.2016.
  */
@@ -11,21 +15,24 @@ public class Main {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Department department = new Department();
-        department.setDepartmentName("Sales");
-        session.save(department);
-        Employee employee = new Employee();
-        employee.setCellPhone("0676776767");
-        employee.setDepartment(department);
-        employee.setFirstName("Anderew");
-        employee.setLastName("Ponomarenko");
-        Employee employee2 = new Employee();
-        employee2.setCellPhone("0677777777");
-        employee2.setDepartment(department);
-        employee2.setFirstName("Julia");
-        employee2.setLastName("Ponomarenko");
-        session.save(employee);
-        session.save(employee2);
+        Director director = session.get(Director.class, 13);
+        Department department = (Department) session.get(Department.class, 11);
+        director.getDepartmentSet().add(department);
+//        director.setDirectorName("Andrew");
+//        System.out.println(department.toString());
+//        List<Department> departments = List<Department>();
+//        departments.add(department);
+//        session.save(director);
+        department.setDirector(director);
+        System.out.println(director.toString());
+//        department.setDepartmentName("Kisses");
+//        Employee employee = new Employee();
+//        employee.setFirstName("Andrei");
+//        employee.setCellPhone("0676767676");
+//        employee.setLastName("Ponomarenko");
+//        employee.setDepartment(department);
+//        session.save(employee);
+//        department.setEmployees(employee);
         session.getTransaction().commit();
         session.close();
         HibernateUtil.shutdown();

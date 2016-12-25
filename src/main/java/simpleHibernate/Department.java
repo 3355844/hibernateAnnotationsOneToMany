@@ -1,7 +1,6 @@
 package simpleHibernate;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
  * Created by user on 20.12.2016.
@@ -11,18 +10,29 @@ import java.util.Set;
 public class Department {
     @Id
     @GeneratedValue
-    @Column (name = "department_id")
-    private long departmentId;
-    @Column (name = "department_name")
+    @Column(name = "department_id")
+    private int departmentId;
+    @Column(name = "department_name")
     private String departmentName;
-    @OneToMany(mappedBy = "department")
-    private Set<Employee> employees;
+    @OneToOne(mappedBy = "department")
+    private Employee employees;
+    @ManyToOne
+    @JoinColumn (name = "directorId")
+    private Director  director;
 
-    public long getDepartmentId() {
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public int getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(long departmentId) {
+    public void setDepartmentId(int departmentId) {
         this.departmentId = departmentId;
     }
 
@@ -34,11 +44,11 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public Set<Employee> getEmployees() {
+    public Employee getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Set<Employee> employees) {
+    public void setEmployees(Employee employees) {
         this.employees = employees;
     }
 }

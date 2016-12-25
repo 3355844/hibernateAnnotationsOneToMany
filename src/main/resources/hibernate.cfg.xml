@@ -15,6 +15,7 @@
 
         <mapping class="simpleHibernate.Department"/>
         <mapping class="simpleHibernate.Employee"/>
+        <mapping class="simpleHibernate.Director"/>
 
     </session-factory>
 </hibernate-configuration>
